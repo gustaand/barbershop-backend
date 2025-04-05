@@ -16,6 +16,9 @@ export const crearCita = async (req, res) => {
     const citaCreada = await nuevaCita.save();
     const citaConHorario = await Cita.findById(citaCreada._id).populate("hora", "hora");
 
+    // Emitir nueva cita al resto de clientes conectados
+    req.io.emit("nueva-cita", citaConHorario);
+
     res.json(citaConHorario);
   } catch (error) {
     console.log(error);
