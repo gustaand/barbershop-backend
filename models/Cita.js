@@ -11,12 +11,13 @@ const citaSchema = new mongoose.Schema({
   },
   nombreCliente: {
     type: String,
-    required: true
   },
   telefono: {
     type: String,
-    required: true
-  }
+  },
+  servicio: {
+    type: String,
+  },
 }, {
   timestamps: true
 });

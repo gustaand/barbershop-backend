@@ -10,7 +10,7 @@ import horarioRoutes from './routes/horarioRoutes.js';
 import diaSemanaRoutes from './routes/diaSemanaRoutes.js';
 import cors from 'cors';
 import http from 'http';
-import { Server as SocketIOServer } from 'socket.io';
+import { Server } from 'socket.io';
 
 dotenv.config();
 connectDB();
@@ -26,7 +26,7 @@ const allowedOrigins = [
 ];
 
 // Crear instancia de socket.io
-const io = new SocketIOServer(server, {
+const io = new Server(server, {
   cors: {
     origin: allowedOrigins,
     credentials: true
